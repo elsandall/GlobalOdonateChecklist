@@ -1,0 +1,10 @@
+cff-version: 1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Sandall
+    given-names: Emily L
+    orcid: https://orcid.org/0000-0003-1353-6077
+title: "Global Odonate Checklist"
+version: 1.0
+page: https://github.com/elsandall/GlobalOdonateChecklist
+date-released: 2021-09-24
