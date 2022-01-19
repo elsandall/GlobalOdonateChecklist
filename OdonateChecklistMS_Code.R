@@ -167,6 +167,45 @@ serrata_map1 <- mapCountryData(serrata_map, nameColumnToPlot="Source",
                                mapTitle = "Aeshna serrata Hagen, 1856", borderCol = "black")
 
 
+####Calculate overlap between data sources
+#Create dataframes by source
+interpolation<-OdonataGlobalChecklist_Supplementary_Supplementary5[(OdonataGlobalChecklist_Supplementary_Supplementary5$Source=="interpolation"),]
+literature<-OdonataGlobalChecklist_Supplementary_Supplementary5[(OdonataGlobalChecklist_Supplementary_Supplementary5$Source=="literature"),]
+occurrence<-OdonataGlobalChecklist_Supplementary_Supplementary5[(OdonataGlobalChecklist_Supplementary_Supplementary5$Source=="occurrence"),]
+
+#Remove the column of the source
+interpolation <-interpolation[, c('validName', 'Country')]
+literature <-literature[, c('validName', 'Country')]
+occurrence <-occurrence[, c('validName', 'Country')]
+
+#Get only unique rows for the combined literature + occurrence data
+lit_and_occur <-rbind(literature,occurrence)
+lit_and_occur <- unique(lit_and_occur)
+
+#Species-country in common between literature and occurrence
+common_lit_occur <- generics::intersect(literature, occurrence)
+
+#Species-country in literature and not occurrence
+lit_not_occur <- anti_join(literature,occurrence)
+
+#Species-country in occurrence and not literature
+occur_not_lit <- anti_join(occurrence,literature)
+
+#Number of species in literature
+lit_species <-literature[, c('validName')]
+lit_species <-unique(lit_species)
+
+#Number of species in occurrences
+occur_species <-occurrence[, c('validName')]
+occur_species<-unique(occur_species)
+
+#Speciesin common between literature and occurrence
+common_sp_lit_occur <- generics::intersect(lit_species, occur_species)
+
+#Get only unique rows for the combined literature + occurrence data
+lit_and_occur_sp <-rbind(lit_species,occur_species)
+lit_and_occur_sp <- unique(lit_and_occur_sp)
+
 
 
 
