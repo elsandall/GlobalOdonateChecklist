@@ -6,4 +6,4 @@ Sandall EL, Pinkert S, &  Jetz, W. (anticipated 2022). Country-level checklists 
 
 # Data availability 
 Open access to the version of the data reported in the manuscript and output from the script can be found in the supplementary file to the manuscript.
-This data is hosted on Map of Life at the following DOI: https://mol.org/datasets/e6c6c843-5702-4a0b-9304-97bad571ecb0. 
+This data is hosted on Map of Life at the following DOI: (https://doi.org/10.48600/mol-b8as-vh75). 
